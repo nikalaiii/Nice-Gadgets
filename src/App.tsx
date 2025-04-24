@@ -15,7 +15,7 @@ export const App: React.FC = () => {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
 
         <Route path="/phones" element={<Phones />} />

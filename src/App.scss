@@ -7,7 +7,11 @@
     $color-element-orange: var(--color-element-orange);
     $color-modified-grey: var(--color-modified-grey);
 
-html {
+    * {
+      box-sizing: border-box;
+    }
+
+.page {
     --color-white: #FFF;
     --color-hover-white: #FAFBFC;
     --color-element-white: #E2E6E9;
@@ -18,6 +22,10 @@ html {
     --color-element-orange: #F86800;
 
     overflow-x: hidden;
+
+    &:has(.aside:target) {
+      overflow: hidden;
+    }
   }
   
   html.dark {

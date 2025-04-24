@@ -92,6 +92,8 @@ img {
 
     &__link {
         display: block;
+        background-color: inherit;
+        border: none;
     
         @include set-size(100%, 100%);
     }

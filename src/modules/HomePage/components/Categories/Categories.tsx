@@ -32,16 +32,19 @@ export const Categories: React.FC = () => {
             onClick={() => navigate('/phones')}
             className={styles.categories__category}
           >
-            <div className={styles.categories__window}>
-              <img
-                className={styles.categories__image}
-                src={`${import.meta.env.BASE_URL}/img/category-phones1.webp`}
-                alt="Category Image"
-              />
-              <div
-                style={{ backgroundColor: '#6D6474' }}
-                className={styles.categories__background}
-              ></div>
+            <div className={styles.categories__wrapper}>
+              {' '}
+              <div className={styles.categories__window}>
+                <img
+                  className={styles.categories__image}
+                  src={`${import.meta.env.BASE_URL}/img/category-phones1.webp`}
+                  alt="Category Image"
+                />
+                <div
+                  style={{ backgroundColor: '#6D6474' }}
+                  className={styles.categories__background}
+                ></div>
+              </div>
             </div>
             <h3 className={styles.categories__name}>
               {t('categories_phones')}
@@ -55,16 +58,18 @@ export const Categories: React.FC = () => {
             onClick={() => navigate('/tablets')}
             className={styles.categories__category}
           >
-            <div className={styles.categories__window}>
-              <img
-                className={styles.categories__image}
-                src={`${import.meta.env.BASE_URL}/img/category-tablets1.webp`}
-                alt="Category Image"
-              />
-              <div
-                style={{ backgroundColor: '#8D8D92' }}
-                className={styles.categories__background}
-              ></div>
+            <div className={styles.categories__wrapper}>
+              <div className={styles.categories__window}>
+                <img
+                  className={styles.categories__image}
+                  src={`${import.meta.env.BASE_URL}/img/category-tablets1.webp`}
+                  alt="Category Image"
+                />
+                <div
+                  style={{ backgroundColor: '#8D8D92' }}
+                  className={styles.categories__background}
+                ></div>
+              </div>
             </div>
             <h3 className={styles.categories__name}>
               {t('categories_tablets')}
@@ -78,16 +83,18 @@ export const Categories: React.FC = () => {
             onClick={() => navigate('/accessories')}
             className={styles.categories__category}
           >
-            <div className={styles.categories__window}>
-              <img
-                className={styles.categories__image}
-                src={`${import.meta.env.BASE_URL}/img/category-accessories1.webp`}
-                alt="Category Image"
-              />
-              <div
-                style={{ backgroundColor: '#973D5F ' }}
-                className={styles.categories__background}
-              ></div>
+            <div className={styles.categories__wrapper}>
+              <div className={styles.categories__window}>
+                <img
+                  className={styles.categories__image}
+                  src={`${import.meta.env.BASE_URL}/img/category-accessories1.webp`}
+                  alt="Category Image"
+                />
+                <div
+                  style={{ backgroundColor: '#973D5F ' }}
+                  className={styles.categories__background}
+                ></div>
+              </div>
             </div>
             <h3 className={styles.categories__name}>
               {t('categories_accessories')}

@@ -32,8 +32,6 @@ export const LinkItem = React.memo(props => {
   const { item, isSelected, handleClick } = props;
   const { theme } = useTheme();
 
-  //'#000' : '#89939A',
-
   return (
     <motion.div
       initial={{ color: '#000' }}

@@ -34,7 +34,7 @@ export const Catalog: React.FC<Props> = ({ products }) => {
 
     newParams.set('sort', method);
     newParams.set('count', count === 'all' ? 'all' : count.toString());
-    setSearchParams(newParams);
+    setSearchParams(newParams, { replace: true });
   }, [method, count, searchParams, setSearchParams]);
 
   const visibleProducts = useMemo(() => {
@@ -90,7 +90,7 @@ export const Catalog: React.FC<Props> = ({ products }) => {
 
     newParams.set('page', nextPage.toString());
     scrollToTop();
-    setSearchParams(newParams);
+    setSearchParams(newParams, { replace: true });
   };
 
   const handlePrevPage = () => {
@@ -101,7 +101,7 @@ export const Catalog: React.FC<Props> = ({ products }) => {
 
       newParams.set('page', prevPage.toString());
       scrollToTop();
-      setSearchParams(newParams);
+      setSearchParams(newParams, { replace: true });
     }
   };
 
@@ -124,7 +124,7 @@ export const Catalog: React.FC<Props> = ({ products }) => {
       newParams.delete('query');
     }
 
-    setSearchParams(newParams);
+    setSearchParams(newParams, { replace: true });
   }, [query, searchParams, setSearchParams]);
 
   return (

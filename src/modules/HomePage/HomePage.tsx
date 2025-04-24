@@ -114,6 +114,7 @@ export const HomePage: React.FC = () => {
             <div className={styles.wrapper}>
               <AnimatePresence mode="wait">
                 <motion.img
+                  loading="lazy"
                   onClick={() =>
                     navigate(
                       '/phones/apple-iphone-14?capacity=128GB&color=midnight',

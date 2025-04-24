@@ -47,6 +47,7 @@ export const Product: React.FC<Props> = ({
       }}
     >
       <img
+        loading="lazy"
         style={{ flex: 1 }}
         src={`${import.meta.env.BASE_URL}/${article.image}`}
         alt="Product Image"

@@ -50,7 +50,7 @@ export const ProductInfo: React.FC = () => {
 
       newParams.set('capacity', activeProduct.capacity);
       newParams.set('color', activeProduct.color);
-      setParams(newParams);
+      setParams(newParams, { replace: true });
 
       return;
     }
@@ -79,14 +79,14 @@ export const ProductInfo: React.FC = () => {
     const newParams = new URLSearchParams(params);
 
     newParams.set('capacity', newCapacity);
-    setParams(newParams);
+    setParams(newParams, { replace: true });
   };
 
   const handleColor = (newColor: string) => {
     const newParams = new URLSearchParams(params);
 
     newParams.set('color', newColor);
-    setParams(newParams);
+    setParams(newParams, { replace: true });
   };
 
   useEffect(() => {

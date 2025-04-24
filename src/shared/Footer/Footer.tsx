@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Footer.module.scss';
 import { useTheme } from '../../context/PageTheme';
 import { useTranslation } from 'react-i18next';
+import { scrollToTop } from '../functions/ScrollToTop';
 
 export const Footer: React.FC = () => {
   const { theme } = useTheme();
@@ -53,7 +54,10 @@ export const Footer: React.FC = () => {
                 : `url('${import.meta.env.BASE_URL}/img/icons/dark_topButton.svg')`,
           }}
         >
-          <a href="#home" className={styles.toTop__link} />
+          <button
+            onClick={() => scrollToTop()}
+            className={styles.toTop__link}
+          />
         </div>
       </div>
     </footer>

@@ -28,9 +28,15 @@
     }
     }
 
+    &__wrapper {
+        @include set-size(100%, 100%);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
     &__category {
         @include set-size(100%, 100%);
-        overflow: hidden;
+
         border-radius: 10px;
     
         @include on-phone{
@@ -46,10 +52,9 @@
 
     &__name{
         margin: 24px 0 0;
+        color: $color-element-black;
     
         @include set-font($font-mont, 20px, 700);
-    
-        color: $color-element-black;
     }
 
     &__value {
