@@ -38,28 +38,25 @@ Design based on this beautiful Figma concept:
 ```bash
 git clone https://github.com/Nikolaiii/Nice-Gadgets.git
 cd Nice-Gadgets
-Install dependencies
-
 ```
+  **Install dependencies**
 
 ```bash
 npm install
-Start the development server
-
 ```
+  **Start the development server**
 
 ```bash
 npm run dev
-Build for production
-
 ```
+  **Build for production**
 
 ```bash
 npm run build
-
 ```
 
-✨ Features
+## ✨ Features
+
 📱 Responsive design – looks great on all screen sizes
 
 🧭 Client-side navigation using react-router-dom
