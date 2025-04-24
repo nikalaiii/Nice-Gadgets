@@ -50,13 +50,13 @@ img {
   gap: 64px;
 
   &__item {
-    @include set-font($font-mont, 16px, 800);
+    @include set-font($font-mont, 12px, 800);
     @include flex-center;
     @include set-size(100%, 100%);
 
     position: relative;
     transition: all 0.3s;
-    letter-spacing: 1.5px;
+    letter-spacing: 4px;
     text-decoration: none;
     color: #000;
 
@@ -113,6 +113,7 @@ img {
   border: 1px solid $color-white;
   border-radius: 50px;
 
+  @include flex-center;
   @include set-size(14px, 14px);
   @include set-font($font-mont, 9px, 600);
 
@@ -122,7 +123,7 @@ img {
 }
 
 .cartCount {
-  position: absolute;
+  @include flex-center;
   top: 25%;
   right: -80%;
 

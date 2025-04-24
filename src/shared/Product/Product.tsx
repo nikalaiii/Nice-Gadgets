@@ -34,6 +34,7 @@ export const Product: React.FC<Props> = ({
     <article
       className={styles.article}
       style={{
+        cursor: 'pointer',
         maxWidth: isCatalog ? '1000px' : undefined,
         width: isCatalog ? '100%' : undefined,
       }}

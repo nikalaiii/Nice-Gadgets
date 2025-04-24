@@ -11,12 +11,12 @@
     gap: 16px;
     box-sizing: border-box;
 
-    @include on-tablet{
+    @include on-tablet {
       grid-template-columns: repeat(12, 1fr);
       padding-inline: $content-padding-inline;
     }
 
-    @include on-phone{
+    @include on-phone {
       grid-template-columns: repeat(4, 1fr);
       padding-inline: 16px;
     }
@@ -35,7 +35,7 @@
     gap: 16px;
     justify-content: space-between;
 
-    @include on-tablet{
+    @include on-tablet {
       grid-column: 1 / -1;
     }
   }
@@ -43,6 +43,7 @@
   &__product {
     @include flex-center;
 
+    cursor: pointer;
     flex-direction: row;
     justify-content: space-between;
     border: 1px solid $color-element-white;
@@ -50,8 +51,11 @@
     padding: 24px;
     max-height: 128px;
 
-    @include on-phone{
+    @include on-phone {
+      padding: 16px;
+      align-content: space-between;
       flex-wrap: wrap;
+      max-height: none;
     }
   }
 
@@ -70,10 +74,16 @@
 
   &__name {
     @include set-font($font-mont, 14px, 600);
-  
-    color: $color-element-black;
 
-    @include on-phone{
+    color: $color-element-black;
+    min-width: 330px;
+
+    @include on-tablet {
+      min-width: 280px;
+    }
+
+    @include on-phone {
+      min-width: 0;
       max-width: 100px;
       word-wrap: break-word;
       overflow-wrap: break-word;
@@ -84,7 +94,12 @@
     @include flex-center;
 
     color: $color-element-black;
+    min-width: 110px;
     gap: 12px;
+
+    @include on-phone {
+      min-width: none;
+    }
   }
 
   &__button {
@@ -103,12 +118,13 @@
   &__price {
     @include set-font($font-mont, 22px, 800);
 
+    min-width: 90px;
     color: $color-element-black;
   }
 
   &__checkout {
     @include flex-center;
-  
+
     grid-column: 17 / -1;
     height: 25vh;
     padding: 24px;
@@ -116,14 +132,14 @@
     border: 1px solid $color-element-white;
     border-radius: 10px;
 
-    @include on-tablet{
+    @include on-tablet {
       grid-column: 1 / -1;
     }
   }
 
   &__total {
     @include flex-center;
-  
+
     width: 100%;
     color: $color-element-black;
     flex-direction: column;
@@ -138,7 +154,7 @@
 
   &__totalTItle {
     @include set-font($font-mont, 14px, 500);
-  
+
     color: $color-grey;
     margin-bottom: 25px;
   }

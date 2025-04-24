@@ -26,18 +26,24 @@ export const Footer: React.FC = () => {
         <a
           href="https://github.com/nikalaiii/Nice-Gadgets"
           className={styles.footer__link}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           git hub
         </a>
         <a
           href="https://en.wikipedia.org/wiki/Rights"
           className={styles.footer__link}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {t('ftr_right')}
         </a>
         <a
           href="mailto:mikalaj.krutak@gmail.com"
           className={styles.footer__link}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {t('ftr_contacts')}
         </a>

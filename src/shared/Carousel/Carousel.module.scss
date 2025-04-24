@@ -41,6 +41,7 @@
   }
 
   &:disabled {
+    cursor: auto;
     border-color: $color-element-white;
   }
 }
