@@ -160,11 +160,12 @@
   }
 
   &__buttonCheckout {
+    box-sizing: border-box;
     @include set-font($font-mont, 14px, 700);
 
     cursor: pointer;
     width: 100%;
-    height: 48px;
+    min-height: 48px;
     background-color: $color-element-orange;
     border: none;
     border-radius: 10px;

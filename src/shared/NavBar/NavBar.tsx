@@ -102,16 +102,14 @@ export const NavBar: React.FC = () => {
 
             <div className={styles.wrapper}>
               <button
+                className={styles.navButton}
                 onClick={() =>
                   i18n.language === 'en'
                     ? changeLanguage('uk')
                     : changeLanguage('en')
                 }
                 style={{
-                  cursor: 'pointer',
                   padding: windowWidth < 790 ? 0 : undefined,
-                  background: 'none',
-                  border: 'none',
                 }}
               >
                 <img
@@ -125,14 +123,12 @@ export const NavBar: React.FC = () => {
               </button>
 
               <button
+                className={styles.navButton}
                 onClick={() =>
                   theme === 'light' ? setTheme('dark') : setTheme('light')
                 }
                 style={{
-                  cursor: 'pointer',
                   padding: windowWidth < 790 ? 0 : undefined,
-                  backgroundColor: theme === 'light' ? '#fff' : '#B4BDC3',
-                  border: 'none',
                 }}
               >
                 <img
@@ -146,7 +142,13 @@ export const NavBar: React.FC = () => {
               </button>
 
               <div className={styles.icon}>
-                <NavLink to="/favourites" className={styles.links__item}>
+                <NavLink
+                  to="/favourites"
+                  className={classNames(styles.links__item, {
+                    [styles['links__item--active']]:
+                      location.pathname.includes('favourites'),
+                  })}
+                >
                   <img
                     src={
                       theme === 'light'
@@ -157,14 +159,20 @@ export const NavBar: React.FC = () => {
                   />
                   {cartItems.length > 0 && (
                     <div className={classNames(styles.count, styles.cartCount)}>
-                      {cartItems.length}
+                      <p className={styles.count__text}>{cartItems.length}</p>
                     </div>
                   )}
                 </NavLink>
               </div>
 
               <div className={styles.icon}>
-                <NavLink to="/case" className={styles.links__item}>
+                <NavLink
+                  to="/case"
+                  className={classNames(styles.links__item, {
+                    [styles['links__item--active']]:
+                      location.pathname.includes('case'),
+                  })}
+                >
                   <img
                     src={
                       theme === 'light'
@@ -180,7 +188,9 @@ export const NavBar: React.FC = () => {
                         styles.favouritesCount,
                       )}
                     >
-                      {favouritesItems.length}
+                      <p className={styles.count__text}>
+                        {favouritesItems.length}
+                      </p>
                     </div>
                   )}
                 </NavLink>

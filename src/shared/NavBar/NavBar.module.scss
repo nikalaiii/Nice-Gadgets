@@ -72,7 +72,7 @@ img {
     }
   
     &--active {
-      color: $color-element-black;
+      border-bottom: 4px solid $color-element-black;
     }
   }
   
@@ -101,6 +101,18 @@ img {
 
 }
 
+.navButton {
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border: 1px solid $color-element-black;
+    background-color: $color-light-grey;
+  }
+}
+
 .rightButton {
   margin-left: auto;
   position: relative;
@@ -113,17 +125,21 @@ img {
   border: 1px solid $color-white;
   border-radius: 50px;
 
-  @include flex-center;
   @include set-size(14px, 14px);
   @include set-font($font-mont, 9px, 600);
 
   color: $color-white;
   line-height: 14px;
-  text-align: center;
+  text-align: end;
+
+  &__text {
+    margin: 0;
+    padding: 0;
+  }
+  z-index: 999;
 }
 
 .cartCount {
-  @include flex-center;
   top: 25%;
   right: -80%;
 

@@ -61,7 +61,7 @@ select {
   &__pages {
     @include flex-center;
   
-    max-width: 250px;
+    max-width: 280px;
     flex-wrap: wrap;
     gap: 8px;
   }

@@ -29,6 +29,7 @@ export const HomePage: React.FC = () => {
   const lastMotion = useRef<'left' | 'right'>('right');
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setIndex(0);
@@ -37,11 +38,13 @@ export const HomePage: React.FC = () => {
   const nextImage = useCallback(() => {
     lastMotion.current = 'right';
     setIndex(prev => (prev + 1) % visibleImages.length);
+    intervalRef.current = null;
   }, [visibleImages.length]);
 
   const prevImage = useCallback(() => {
     lastMotion.current = 'left';
     setIndex(prev => (prev - 1 + visibleImages.length) % visibleImages.length);
+    intervalRef.current = null;
   }, [visibleImages.length]);
 
   const handleSwipe = useCallback(
@@ -56,6 +59,7 @@ export const HomePage: React.FC = () => {
         }
       }
     },
+
     [nextImage, prevImage],
   );
 
@@ -86,6 +90,18 @@ export const HomePage: React.FC = () => {
       setTimeout(() => setVisiblePage(true), 100);
     }
   }, [visiblePage]);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      nextImage();
+    }, 5000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>

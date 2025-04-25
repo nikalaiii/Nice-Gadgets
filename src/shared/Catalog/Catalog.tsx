@@ -180,6 +180,7 @@ export const Catalog: React.FC<Props> = ({ products }) => {
                 article={currentProduct}
                 fullPrice={true}
                 isCatalog={true}
+                scroll={true}
               />
             );
           })
@@ -205,6 +206,14 @@ export const Catalog: React.FC<Props> = ({ products }) => {
           </button>
 
           {Array.from({ length: countPages }, (_, index) => {
+            const activePage = parseInt(page);
+
+            if (countPages >= 6) {
+              if (activePage > index + 3 || activePage < index - 1) {
+                return null;
+              }
+            }
+
             return (
               <button
                 key={index}

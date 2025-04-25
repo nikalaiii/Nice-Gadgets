@@ -13,5 +13,5 @@
     "ctl_all": "All",
     "ctl_enterName": "Enter Model Name",
 
-    "ctl__error": "There are no products matching your criteria"
+    "ctl_error": "There are no products matching your criteria"
 }
