@@ -33,11 +33,16 @@ export const useProductsStorage = () => {
     }
   }
 
+  function clearCart() {
+    return setCartItems([]);
+  }
+
   return {
     cartItems,
     favouritesItems,
     findProduct,
     addProduct,
     removeProduct,
+    clearCart,
   };
 };

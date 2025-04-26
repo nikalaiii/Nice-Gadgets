@@ -1,11 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './NavAdress.module.scss';
-import { Products } from '../types/Products';
 import { useTheme } from '../../context/PageTheme';
 
-export const NavAdress: React.FC = () => {
-  const location = useLocation();
-  const places = location.pathname.split('/').filter(Boolean);
+type Path = { name: string; path: string; isCategory?: boolean };
+
+interface Props {
+  places: Path[];
+}
+
+export const NavAdress: React.FC<Props> = ({ places }) => {
   const { theme } = useTheme();
 
   return (
@@ -20,32 +23,31 @@ export const NavAdress: React.FC = () => {
           alt="Icon Home"
           className={styles.navAdress__icon}
         />
-        {'> '}
       </Link>
-      {places.map((path, index) => {
-        const pathTo = `/${places.slice(0, index + 1).join('/')}`;
-
-        return (
-          <span className={styles.span} key={path}>
-            <Link
-              style={{
-                color: Object.values(Products).includes(path as Products)
-                  ? theme === 'light'
-                    ? '#0F0F11'
-                    : '#fff'
-                  : theme === 'light'
-                    ? '#89939A'
-                    : '#E2E6E9',
-              }}
-              className={styles.link}
-              to={pathTo}
-            >
-              {path}
-            </Link>
-            {index < places.length - 1 && ' > '}
-          </span>
-        );
-      })}
+      {places.map((place: Path) => (
+        <span key={place.path} className={styles.span}>
+          <Link
+            className={styles.link}
+            style={{
+              color: place.isCategory
+                ? theme === 'light'
+                  ? '#0F0F11'
+                  : '#fff'
+                : theme === 'light'
+                  ? '#89939A'
+                  : '#E2E6E9',
+            }}
+            to={place.path}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}/img/icons/rightArrow.svg`}
+              alt=">"
+              className={styles.arrow}
+            />
+            {place.name}
+          </Link>
+        </span>
+      ))}
     </div>
   );
 };

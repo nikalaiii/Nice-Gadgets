@@ -1,11 +1,17 @@
 @import '../styles/index';
 @import 'src/App';
 
+.navAdress {
+  display: flex;
+  align-items: center;
+}
+
 .link {
   @include set-font($font-mont, 12px, 700);
 
-  color: white;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .homeLink {
@@ -21,4 +27,12 @@
 
 .span {
     @include set-font($font-mont, 12px, 700);
+}
+
+.arrow {
+  display: inline-block;
+  padding-inline: 10px;
+
+  object-position: center;
+  margin: auto;
 }

@@ -4,7 +4,8 @@
 select {
   @include set-font($font-mont, 14px, 700);
 
-    box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
   min-width: 128px;
   min-height: 40px;
   border: 1px solid $color-grey;
@@ -76,9 +77,11 @@ select {
   }
 
   &__queryInput {
-    height: 35px;
+    height: 45px;
+    width: 25vw;
     border: 1px solid $color-grey;
     border-radius: 10px;
+    padding: 10px;
   
     @include set-font($font-mont, 13px, 700);
   }

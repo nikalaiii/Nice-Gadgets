@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './ProductInfo.module.scss';
 import { useInfoProduct } from '../../hooks/useInfoProduct';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { ProductCard } from '../../shared/types/ProductCard';
 import { Loader } from '../../shared/Loader';
 import { Carousel } from '../../shared/Carousel/Carousel';
@@ -22,6 +22,7 @@ export const ProductInfo: React.FC = () => {
   const [activeImg, setActiveImg] = useState<string>();
   const [sameProducts, setSameProducts] = useState<Article[] | null>();
   const { t } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     if (!category || !modelName) {
@@ -104,7 +105,19 @@ export const ProductInfo: React.FC = () => {
       {product && activeProduct ? (
         <div className={styles.card__content}>
           <div style={{ marginTop: '24px' }} className={styles.card__wrapper}>
-            <NavAdress />
+            <NavAdress
+              places={[
+                {
+                  name: activeProduct.category,
+                  path: `/${activeProduct.category}`,
+                  isCategory: true,
+                },
+                {
+                  name: activeProduct.name,
+                  path: location.pathname + location.search,
+                },
+              ]}
+            />
 
             <a
               className={styles.card__backLink}

@@ -13,13 +13,14 @@ import { useNavigate } from 'react-router-dom';
 import { goToInfo } from '../../shared/functions/handleGoToInfo';
 
 export const Cart: React.FC = () => {
-  const { cartItems, removeProduct } = useStorage();
+  const { cartItems, removeProduct, clearCart } = useStorage();
   const { theme } = useTheme();
   const { t } = useTranslation();
   const [products, setProducts] = useState<Article[] | null>(null);
   const [countProducts, setCountProducts] = useState<{ [key: string]: number }>(
     {},
   );
+  const [totalCount, setTotalCount] = useState<number>(0);
   const navigate = useNavigate();
 
   const totalPrice = useMemo(() => {
@@ -69,9 +70,18 @@ export const Cart: React.FC = () => {
     });
   }
 
+  useEffect(() => {
+    const newCount = Object.values(countProducts).reduce(
+      (acc, value) => acc + value,
+      0,
+    );
+
+    setTotalCount(newCount);
+  }, [countProducts]);
+
   return (
     <div className={styles.cart}>
-      <NavAdress />
+      <NavAdress places={[{ name: 'Back', path: '/' }]} />
       <h1 className={styles.cart__title}>{t('crt_cart')}</h1>
       {cartItems && products ? (
         <div className={styles.cart__content}>
@@ -174,10 +184,13 @@ export const Cart: React.FC = () => {
               <h2 className={styles.cart__totalPrice}>{`$${totalPrice}`}</h2>
               <p
                 className={styles.cart__totalTItle}
-              >{`${t('crt_total')} ${products.length} ${t('crt_items')}`}</p>
+              >{`${t('crt_total')} ${totalCount} ${t('crt_items')}`}</p>
             </div>
 
-            <button className={styles.cart__buttonCheckout}>
+            <button
+              onClick={() => clearCart()}
+              className={styles.cart__buttonCheckout}
+            >
               {t('crt_check')}
             </button>
           </div>

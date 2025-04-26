@@ -29,7 +29,7 @@ export const Favourites: React.FC = () => {
     <div className={styles.favourites}>
       {products && (
         <div className={styles.favourites__content}>
-          <NavAdress />
+          <NavAdress places={[{ name: 'Favourites', path: '/favourites' }]} />
           <h1 className={styles.favourites__title}>{t('crt_favourites')}</h1>
           <p
             className={styles.favourites__count}

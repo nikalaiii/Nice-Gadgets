@@ -20,7 +20,6 @@ export const Product: React.FC<Props> = ({
   article,
   fullPrice = false,
   isCatalog = false,
-  scroll = false,
 }) => {
   const { findProduct, addProduct, removeProduct } = useStorage();
   const navigate = useNavigate();
@@ -39,12 +38,8 @@ export const Product: React.FC<Props> = ({
         width: isCatalog ? '100%' : undefined,
       }}
       onClick={() => {
-        if (scroll) {
-          handleClick();
-          scrollToTop();
-        } else {
-          handleClick();
-        }
+        handleClick();
+        scrollToTop();
       }}
     >
       <img

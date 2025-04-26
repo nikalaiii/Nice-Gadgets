@@ -24,7 +24,7 @@ export const Phones: React.FC = () => {
 
   return (
     <div className={styles.phones}>
-      <NavAdress />
+      <NavAdress places={[{ name: 'Phones', path: '/phones' }]} />
       <h1 className={styles.phones__title}>{t('ctl_phones')}</h1>
       <Catalog productName={Products.Phones} products={phones} />
     </div>

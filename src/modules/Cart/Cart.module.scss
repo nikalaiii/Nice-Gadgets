@@ -93,13 +93,9 @@
   &__count {
     @include flex-center;
 
+    justify-content: space-between;
     color: $color-element-black;
-    min-width: 110px;
-    gap: 12px;
-
-    @include on-phone {
-      min-width: none;
-    }
+    min-width: 96px;
   }
 
   &__button {

@@ -7,6 +7,7 @@ interface StorageContextType {
   addProduct: (place: DataNames, id: string) => void;
   removeProduct: (place: DataNames, id: string) => void;
   findProduct: (place: DataNames, id: string) => boolean;
+  clearCart: () => void;
 }
 
 const StorageContext = createContext<StorageContextType | null>(null);
@@ -16,8 +17,14 @@ export const StorageProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { addProduct, removeProduct, cartItems, favouritesItems, findProduct } =
-    useProductsStorage();
+  const {
+    addProduct,
+    removeProduct,
+    cartItems,
+    favouritesItems,
+    findProduct,
+    clearCart,
+  } = useProductsStorage();
 
   return (
     <StorageContext.Provider
@@ -27,6 +34,7 @@ export const StorageProvider = ({
         cartItems,
         favouritesItems,
         findProduct,
+        clearCart,
       }}
     >
       {children}
